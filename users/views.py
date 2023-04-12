@@ -1,5 +1,6 @@
 from rest_framework.views import APIView, Response
 from users.serializers import UserSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 
 class UserView(APIView):
@@ -9,3 +10,7 @@ class UserView(APIView):
 
         serializer.save()
         return Response(serializer.data, 201)
+
+
+class LoginView(TokenObtainPairView):
+    ...
